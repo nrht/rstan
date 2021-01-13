@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  rstan:
+    # image: jrnold/rstan
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: rstan
+    restart: always
+    ports:
+      - 8787:8787
+    volumes:
+      - ./rstudio:/home/rstudio
+    environment:
+      USER: rstudio
+      PASSWORD: admin
